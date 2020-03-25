@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import PostCard from "./PostCard";
 
 function SocialFeed() {
   const [posts, setPosts] = useState([]);
@@ -22,12 +23,7 @@ function SocialFeed() {
     return (
       <>
         {posts.map(post => {
-          return (
-            <div>
-              <h6>{post.post}</h6>
-              <p>{post.user}</p>
-            </div>
-          );
+          return <PostCard key={post.id} post={post} />;
         })}
       </>
     );
